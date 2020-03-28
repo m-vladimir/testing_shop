@@ -1,4 +1,10 @@
-import os
+import dotenv
 
 
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL") + os.getenv("DATABASE_NAME")
+DOTENV_FILE = ".env"
+
+DATABASE_URL = dotenv.get_key(DOTENV_FILE, "DATABASE_URL")
+DATABASE_NAME = dotenv.get_key(DOTENV_FILE, "DATABASE_NAME")
+DATABASE_DEBUG = bool(int(dotenv.get_key(DOTENV_FILE, "DATABASE_DEBUG")))
+
+SQLALCHEMY_DATABASE_URL = f"{DATABASE_URL}{DATABASE_NAME}"

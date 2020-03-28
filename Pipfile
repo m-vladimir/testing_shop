@@ -10,6 +10,7 @@ uvicorn = "*"
 fastapi = "*"
 sqlalchemy = "*"
 pydantic = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
